@@ -2,6 +2,7 @@ import salesImage from "@/assets/SalesDashboard_2026.png.asset.json";
 import blinkitImage from "@/assets/Blinkit_dashboard.png.asset.json";
 import swiggyImage from "@/assets/swiggy_dashboard.png.asset.json";
 import irisImage from "@/assets/iris_flower_dashboard.png.asset.json";
+import profilePhoto from "@/assets/ashmita-profile.png.asset.json";
 
 /**
  * Single source of truth for all portfolio content.
@@ -36,6 +37,8 @@ export type Project = {
 
 export const profile = {
   name: "Ashmita E",
+  /** Professional photo shown in the About section. Uploaded real photo — do not replace. */
+  photo: profilePhoto.url,
   role: "Data Analyst",
   greeting: "Hi, I'm Ashmita E",
   heading: "Aspiring Data Analyst",
