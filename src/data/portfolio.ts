@@ -1,3 +1,8 @@
+import salesImage from "@/assets/SalesDashboard_2026.png.asset.json";
+import blinkitImage from "@/assets/Blinkit_dashboard.png.asset.json";
+import swiggyImage from "@/assets/swiggy_dashboard.png.asset.json";
+import irisImage from "@/assets/iris_flower_dashboard.png.asset.json";
+
 /**
  * Single source of truth for all portfolio content.
  * Update the values here — the UI reads everything from this file.
