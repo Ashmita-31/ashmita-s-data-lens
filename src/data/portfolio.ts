@@ -124,7 +124,7 @@ export const projects: Project[] = [
       "Interactive dashboard for analyzing sales, profit, quantity and business performance across locations, industries and time periods.",
     tools: ["Excel", "Pivot Tables", "Charts", "Slicers", "Data Analysis"],
     githubUrl: "https://github.com/Ashmita-31/Dashboard-Excel",
-    image: "",
+    image: salesImage.url,
     gallery: [],
     details: {
       overview:
@@ -170,7 +170,7 @@ export const projects: Project[] = [
       "Interactive dashboard analyzing sales performance, product trends, outlet performance and business insights.",
     tools: ["Power BI", "Data Cleaning", "DAX", "Data Visualization"],
     githubUrl: "https://github.com/Ashmita-31/Blinkit-Dashboard",
-    image: "",
+    image: blinkitImage.url,
     gallery: [],
     details: {
       overview:
@@ -216,7 +216,7 @@ export const projects: Project[] = [
       "Interactive food-delivery analytics dashboard designed to identify sales trends, customer patterns and business insights.",
     tools: ["Power BI", "Excel", "Data Analysis", "Data Visualization"],
     githubUrl: "https://github.com/Ashmita-31/Swiggy-project",
-    image: "",
+    image: swiggyImage.url,
     gallery: [],
     details: {
       overview:
@@ -262,7 +262,7 @@ export const projects: Project[] = [
       "Machine learning model that predicts the Iris flower species using four flower measurements.",
     tools: ["Python", "Pandas", "NumPy", "Scikit-learn", "Decision Tree", "Matplotlib"],
     githubUrl: "https://github.com/Ashmita-31/IRIS-flower-classification",
-    image: "",
+    image: irisImage.url,
     gallery: [],
     details: {
       overview:
