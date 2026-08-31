@@ -153,8 +153,15 @@ export function About() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-12">
           <Reveal className="lg:col-span-3">
-            <div className="mx-auto flex h-44 w-44 items-center justify-center rounded-3xl bg-accent">
-              <User className="h-20 w-20 text-primary" aria-hidden="true" />
+            <div className="mx-auto w-48 overflow-hidden rounded-3xl border-2 border-primary/20 bg-accent shadow-soft sm:w-56">
+              {profile.photo ? (
+                <img
+                  src={profile.photo}
+                  alt={`Professional photo of ${profile.name}`}
+                  className="aspect-[4/5] w-full object-cover object-top"
+                  loading="lazy"
+                />
+              ) : null}
             </div>
           </Reveal>
 
