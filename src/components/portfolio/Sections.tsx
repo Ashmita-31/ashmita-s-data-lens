@@ -20,7 +20,6 @@ import {
   Sigma,
   Table2,
   Trophy,
-  User,
 } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import {
@@ -52,7 +51,8 @@ const skillIcons: Record<string, typeof BarChart3> = {
 function SectionHeading({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
-      <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{title}</h2>
+      <p className="section-label">Selected portfolio</p>
+      <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-5xl">{title}</h2>
       {subtitle ? <p className="mt-3 text-base text-muted-foreground">{subtitle}</p> : null}
     </div>
   );
@@ -63,10 +63,10 @@ export function Hero() {
     <section id="home" className="relative scroll-mt-24 overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div className="animate-fade-up">
-          <span className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-sm font-medium text-accent-foreground">
+          <span className="section-label">
             {profile.greeting}
           </span>
-          <h1 className="mt-5 text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-6xl">
+          <h1 className="mt-5 text-5xl font-extrabold leading-[1.05] text-foreground sm:text-7xl">
             {profile.heading}
           </h1>
           <p className="mt-4 text-xl font-semibold text-primary sm:text-2xl">{profile.subtitle}</p>
@@ -153,12 +153,12 @@ export function About() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-12">
           <Reveal className="lg:col-span-3">
-            <div className="mx-auto w-48 overflow-hidden rounded-3xl border-2 border-primary/20 bg-accent shadow-soft sm:w-56">
+             <div className="mx-auto w-48 overflow-hidden rounded-xl border border-primary/30 bg-card p-1 shadow-card sm:w-56">
               {profile.photo ? (
                 <img
                   src={profile.photo}
                   alt={`Professional photo of ${profile.name}`}
-                  className="aspect-[4/5] w-full object-cover object-top"
+                  className="aspect-[4/5] w-full rounded-lg object-cover object-top"
                   loading="lazy"
                 />
               ) : null}
@@ -166,8 +166,9 @@ export function About() {
           </Reveal>
 
           <Reveal className="lg:col-span-5" delay={80}>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">About Me</h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">{profile.about}</p>
+            <p className="section-label">Profile</p>
+            <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-5xl">About Me</h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">{profile.intro}</p>
           </Reveal>
 
           <Reveal className="lg:col-span-4" delay={160}>
