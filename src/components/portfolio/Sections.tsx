@@ -34,6 +34,7 @@ import {
 import { DashboardVisual } from "./DashboardVisual";
 import { ProjectImage } from "./ProjectImage";
 import { Reveal } from "./Reveal";
+import { Button } from "@/components/ui/button";
 
 const skillIcons: Record<string, typeof BarChart3> = {
   table: Table2,
@@ -59,65 +60,60 @@ function SectionHeading({ title, subtitle }: { title: string; subtitle?: string 
 }
 
 export function Hero() {
+  const headingParts = profile.heading.split("Insights");
+
   return (
-    <section id="home" className="relative scroll-mt-24 overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div className="animate-fade-up">
-          <span className="section-label">
-            {profile.greeting}
-          </span>
-          <h1 className="mt-5 text-5xl font-extrabold leading-[1.05] text-foreground sm:text-7xl">
-            {profile.heading}
+    <section id="home" className="hero-cinematic relative flex min-h-[88svh] scroll-mt-24 items-end overflow-hidden pt-28 sm:min-h-[92svh] sm:items-center">
+      <video
+        className="hero-cinematic__video"
+        src={profile.heroVideo}
+        poster={profile.photo}
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-label={`Cinematic portrait of ${profile.name} walking toward the camera`}
+      />
+      <div className="hero-cinematic__veil" aria-hidden="true" />
+      <div className="hero-data-grid" aria-hidden="true">
+        <span className="hero-data-grid__line" />
+        <span className="hero-data-grid__bars" />
+      </div>
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
+        <div className="max-w-2xl animate-fade-up">
+          <span className="section-label">{profile.greeting}</span>
+          <h1 className="mt-5 max-w-3xl text-4xl font-extrabold uppercase leading-[1.02] text-foreground sm:text-6xl lg:text-7xl">
+            {headingParts[0]}
+            <span className="text-primary">Insights</span>
+            {headingParts[1]}
           </h1>
-          <p className="mt-4 text-xl font-semibold text-primary sm:text-2xl">{profile.subtitle}</p>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">{profile.intro}</p>
+          <p className="mt-5 text-xs font-bold uppercase text-primary sm:text-sm">{profile.subtitle}</p>
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">{profile.intro}</p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition-all hover:bg-primary/90 hover:shadow-card"
-            >
-              View Projects
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
-            {resumeUrl ? (
-              <a
-                href={resumeUrl}
-                download
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent"
-              >
-                Download Resume
-                <Download className="h-4 w-4" aria-hidden="true" />
+          <div className="mt-8 flex max-w-xl flex-wrap gap-3">
+            <Button asChild size="lg" className="h-11 uppercase">
+              <a href="#projects">
+                View My Projects
+                <ArrowRight aria-hidden="true" />
               </a>
-            ) : null}
+            </Button>
+            {resumeUrl ? (
+              <Button asChild size="lg" variant="outline" className="h-11 uppercase">
+                <a href={resumeUrl} download>
+                  Download Resume
+                  <Download aria-hidden="true" />
+                </a>
+              </Button>
+            ) : (
+              <Button asChild size="lg" variant="outline" className="h-11 uppercase">
+                <a href="#resume">Download Resume</a>
+              </Button>
+            )}
+            <Button asChild size="lg" variant="ghost" className="h-11 border border-border bg-background/40 uppercase backdrop-blur-sm">
+              <a href="#contact">Let's Connect</a>
+            </Button>
           </div>
-
-          <div className="mt-8 flex items-center gap-3">
-            {contact.linkedin ? (
-              <SocialIcon href={contact.linkedin} label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
-              </SocialIcon>
-            ) : null}
-            {contact.github ? (
-              <SocialIcon href={contact.github} label="GitHub">
-                <Github className="h-5 w-5" />
-              </SocialIcon>
-            ) : null}
-            {contact.email ? (
-              <SocialIcon href={`mailto:${contact.email}`} label="Email">
-                <Mail className="h-5 w-5" />
-              </SocialIcon>
-            ) : null}
-            {contact.leetcode ? (
-              <SocialIcon href={contact.leetcode} label="LeetCode">
-                <Trophy className="h-5 w-5" />
-              </SocialIcon>
-            ) : null}
-          </div>
-        </div>
-
-        <div className="animate-fade-up" style={{ animationDelay: "150ms" }}>
-          <DashboardVisual />
         </div>
       </div>
     </section>
@@ -172,7 +168,7 @@ export function About() {
           </Reveal>
 
           <Reveal className="lg:col-span-4" delay={160}>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
+            <div id="education" className="scroll-mt-24 rounded-2xl border border-border bg-card p-6 shadow-card">
               <div className="flex items-center gap-3">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary">
                   <GraduationCap className="h-6 w-6" aria-hidden="true" />

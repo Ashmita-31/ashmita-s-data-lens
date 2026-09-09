@@ -3,6 +3,7 @@ import blinkitImage from "@/assets/Blinkit_dashboard.png.asset.json";
 import swiggyImage from "@/assets/swiggy_dashboard.png.asset.json";
 import irisImage from "@/assets/iris_flower_dashboard.png.asset.json";
 import profilePhoto from "@/assets/ashmita-profile.png.asset.json";
+import heroWalkVideo from "@/assets/ashmita-hero-walk.mp4.asset.json";
 
 /**
  * Single source of truth for all portfolio content.
@@ -39,12 +40,14 @@ export const profile = {
   name: "Ashmita E",
   /** Professional photo shown in the About section. Uploaded real photo — do not replace. */
   photo: profilePhoto.url,
+  /** Cinematic hero video created from the uploaded real portrait. */
+  heroVideo: heroWalkVideo.url,
   role: "Data Analyst",
-  greeting: "Hi, I'm Ashmita E",
-  heading: "Aspiring Data Analyst",
-  subtitle: "Turning Data into Meaningful Insights",
+  greeting: "Hi, I'm Ashmita",
+  heading: "Turning Data into Insights That Matter.",
+  subtitle: "BE CSE (AI & ML) Student • Aspiring Data Analyst",
   intro:
-    "I am a B.E. CSE (AI & ML) student passionate about Data Analytics, Data Visualization and building data-driven solutions. I enjoy transforming raw data into meaningful insights using Excel, SQL, Power BI and Python.",
+    "I'm a 3rd-year Computer Science Engineering student specializing in Artificial Intelligence & Machine Learning, passionate about data analytics, visualization, and turning raw data into meaningful business insights.",
   about:
     "I am a Computer Science and Engineering student specialising in Artificial Intelligence and Machine Learning, focused on a career in data analytics. I work with Excel, SQL, Power BI and Python to clean messy data, explore it for patterns and turn the findings into dashboards and reports that support clear business decisions. I enjoy the full analysis cycle — from understanding the question, to preparing the data, to presenting insights that people can actually act on.",
 };
@@ -311,7 +314,7 @@ export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "Resume", href: "#resume" },
+  { label: "Education", href: "#education" },
+  { label: "Certificates", href: "#certifications" },
   { label: "Contact", href: "#contact" },
 ];
