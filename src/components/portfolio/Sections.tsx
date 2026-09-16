@@ -30,6 +30,7 @@ import {
   projects,
   resumeUrl,
   skills,
+  socialLinks,
 } from "@/data/portfolio";
 import { DashboardVisual } from "./DashboardVisual";
 import { ProjectImage } from "./ProjectImage";
@@ -141,6 +142,51 @@ function SocialIcon({
     >
       {children}
     </a>
+  );
+}
+
+/** Clean "LC" text mark for LeetCode — lucide-react has no official LeetCode icon. */
+function LeetCodeMark() {
+  return (
+    <span className="text-[10px] font-extrabold tracking-tight leading-none">LC</span>
+  );
+}
+
+/** Compact horizontal row of small social icons with tooltips. Hides empty links. */
+export function SocialIcons() {
+  const items = [
+    { href: socialLinks.linkedin, label: "LinkedIn", node: <Linkedin className="h-5 w-5" /> },
+    { href: socialLinks.github, label: "GitHub", node: <Github className="h-5 w-5" /> },
+    { href: socialLinks.leetcode, label: "LeetCode", node: <LeetCodeMark /> },
+    { href: socialLinks.email, label: "Email", node: <Mail className="h-5 w-5" /> },
+  ].filter((item) => Boolean(item.href));
+
+  if (items.length === 0) return null;
+
+  return (
+    <ul className="mt-8 flex flex-wrap items-center justify-center gap-3">
+      {items.map((item) => {
+        const external = item.href.startsWith("http");
+        return (
+          <li key={item.label} className="group relative">
+            <a
+              href={item.href}
+              aria-label={item.label}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noopener noreferrer" : undefined}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-ink-foreground/15 bg-ink-foreground/5 text-ink-foreground/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
+            >
+              {item.node}
+            </a>
+            <span
+              className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-ink-foreground px-2 py-1 text-xs font-medium text-ink opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+            >
+              {item.label}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
@@ -401,6 +447,8 @@ export function Contact() {
             Let's connect and discuss data, analytics and opportunities.
           </p>
         </div>
+
+        <SocialIcons />
 
         <div className="mt-12 grid gap-10 lg:grid-cols-2">
           <form onSubmit={onSubmit} className="space-y-4">

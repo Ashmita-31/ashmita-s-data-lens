@@ -69,6 +69,17 @@ export const contact = {
   leetcode: "https://leetcode.com/u/Ashmita_31/",
 };
 
+/**
+ * Social links shown as compact icons under "Let's Connect".
+ * Leave a field as "" to hide that icon. Email uses a mailto: link.
+ */
+export const socialLinks = {
+  linkedin: contact.linkedin,
+  github: contact.github,
+  leetcode: contact.leetcode,
+  email: contact.email ? `mailto:${contact.email}` : "",
+};
+
 /** Resume PDF served from /public/resume/. Leave "" to keep the card non-clickable. */
 export const resumeUrl = "/resume/Ashmita_E_Resume.pdf";
 
