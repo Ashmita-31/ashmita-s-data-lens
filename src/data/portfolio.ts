@@ -69,8 +69,8 @@ export const contact = {
   leetcode: "https://leetcode.com/u/Ashmita_31/",
 };
 
-/** Put your resume PDF in /public and set this to e.g. "/Ashmita-E-Resume.pdf". */
-export const resumeUrl = "";
+/** Resume PDF served from /public/resume/. Leave "" to keep the card non-clickable. */
+export const resumeUrl = "/resume/Ashmita_E_Resume.pdf";
 
 export const skills: { name: string; icon: string }[] = [
   { name: "Excel", icon: "table" },
