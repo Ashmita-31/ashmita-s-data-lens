@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { navLinks, profile, resumeUrl } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -52,7 +52,8 @@ export function Navbar() {
           {resumeUrl ? (
             <a
               href={resumeUrl}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-primary/90 sm:inline-flex"
             >
               <Download className="h-4 w-4" aria-hidden="true" />
@@ -93,7 +94,8 @@ export function Navbar() {
             <li className="pt-2">
               <a
                 href={resumeUrl}
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
