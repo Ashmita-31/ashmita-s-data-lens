@@ -35,6 +35,7 @@ import { DashboardVisual } from "./DashboardVisual";
 import { ProjectImage } from "./ProjectImage";
 import { Reveal } from "./Reveal";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const skillIcons: Record<string, typeof BarChart3> = {
   table: Table2,
@@ -100,7 +101,7 @@ export function Hero() {
             </Button>
             {resumeUrl ? (
               <Button asChild size="lg" variant="outline" className="h-11 uppercase">
-                <a href={resumeUrl} download>
+                <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
                   Download Resume
                   <Download aria-hidden="true" />
                 </a>
