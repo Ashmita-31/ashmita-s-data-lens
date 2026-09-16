@@ -326,33 +326,49 @@ export function Certifications() {
 }
 
 export function ResumeBanner() {
+  const clickable = Boolean(resumeUrl);
+  const cardClasses = "flex flex-col items-start justify-between gap-6 rounded-3xl bg-accent p-8 sm:p-10 md:flex-row md:items-center transition-all duration-300";
+
+  const inner = (
+    <>
+      <div className="flex items-start gap-4">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-card text-primary">
+          <FileText className="h-6 w-6" aria-hidden="true" />
+        </span>
+        <div>
+          <h2 className="text-2xl font-bold text-foreground">My Resume</h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            View my detailed resume, skills, projects and experience.
+          </p>
+        </div>
+      </div>
+      {resumeUrl ? (
+        <span className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-primary/90">
+          <Download className="h-4 w-4" aria-hidden="true" />
+          Download Resume
+        </span>
+      ) : null}
+    </>
+  );
+
   return (
     <section id="resume" className="scroll-mt-24 py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="flex flex-col items-start justify-between gap-6 rounded-3xl bg-accent p-8 sm:p-10 md:flex-row md:items-center">
-            <div className="flex items-start gap-4">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-card text-primary">
-                <FileText className="h-6 w-6" aria-hidden="true" />
-              </span>
-              <div>
-                <h2 className="text-2xl font-bold text-foreground">My Resume</h2>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  View my detailed resume, skills, projects and experience.
-                </p>
-              </div>
+          {clickable ? (
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(cardClasses, "cursor-pointer hover:-translate-y-1 hover:border-primary/40 hover:shadow-card border border-transparent")}
+            >
+              {inner}
+            </a>
+          ) : (
+            <div className={cn(cardClasses, "border border-border")}>
+              {inner}
             </div>
-            {resumeUrl ? (
-              <a
-                href={resumeUrl}
-                download
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-primary/90"
-              >
-                <Download className="h-4 w-4" aria-hidden="true" />
-                Download Resume
-              </a>
-            ) : null}
-          </div>
+          )}
         </Reveal>
       </div>
     </section>
