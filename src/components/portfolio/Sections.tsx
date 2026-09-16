@@ -30,6 +30,7 @@ import {
   projects,
   resumeUrl,
   skills,
+  socialLinks,
 } from "@/data/portfolio";
 import { DashboardVisual } from "./DashboardVisual";
 import { ProjectImage } from "./ProjectImage";
