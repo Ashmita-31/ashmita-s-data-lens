@@ -116,9 +116,50 @@ export function Hero() {
               <a href="#contact">Let's Connect</a>
             </Button>
           </div>
+
+          {/* Compact social icons directly below the buttons */}
+          <HeroSocialIcons />
         </div>
       </div>
     </section>
+  );
+}
+
+/** Small left-aligned social icon row for the hero, placed below the buttons. */
+function HeroSocialIcons() {
+  const items = [
+    { href: socialLinks.linkedin, label: "LinkedIn", node: <Linkedin className="h-5 w-5" /> },
+    { href: socialLinks.github, label: "GitHub", node: <Github className="h-5 w-5" /> },
+    { href: socialLinks.leetcode, label: "LeetCode", node: <LeetCodeMark /> },
+    { href: socialLinks.email, label: "Email", node: <Mail className="h-5 w-5" /> },
+  ].filter((item) => Boolean(item.href));
+
+  if (items.length === 0) return null;
+
+  return (
+    <ul className="mt-6 flex flex-wrap items-center gap-3">
+      {items.map((item) => {
+        const external = item.href.startsWith("http");
+        return (
+          <li key={item.label} className="group relative">
+            <a
+              href={item.href}
+              aria-label={item.label}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noopener noreferrer" : undefined}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 bg-foreground/5 text-foreground/80 transition-all duration-200 hover:scale-110 hover:border-primary hover:text-primary"
+            >
+              {item.node}
+            </a>
+            <span
+              className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-foreground px-2 py-1 text-xs font-medium text-background opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+            >
+              {item.label}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
