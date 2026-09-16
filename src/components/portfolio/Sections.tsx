@@ -448,6 +448,8 @@ export function Contact() {
           </p>
         </div>
 
+        <SocialIcons />
+
         <div className="mt-12 grid gap-10 lg:grid-cols-2">
           <form onSubmit={onSubmit} className="space-y-4">
             <div>
